@@ -14,8 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from greenhousebackend.views.auth import register_user, check_user 
+from rest_framework import routers
+
+router = routers.DefaultRouter(trailing_slash=False)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('checkuser', check_user, name='checkuser'),
+    path('register', register_user),
+    path('', include(router.urls)),
 ]
