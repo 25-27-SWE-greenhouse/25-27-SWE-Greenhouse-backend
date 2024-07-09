@@ -1,4 +1,4 @@
-# Rare Server
+# Greenhouse Server
 <!-- TODO: Add a description of the Rare application -->
 
 ## Getting Started:
