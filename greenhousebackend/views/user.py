@@ -1,6 +1,12 @@
 import sqlite3
 import json
 from datetime import datetime
+from rest_framework.viewsets import ViewSet
+from rest_framework.response import Response
+from rest_framework import serializers, status
+from ..models import User
+
+"""I left the template boilerpalte in case we get to stretch goals."""
 
 def login_user(user):
     """Checks for the user in the database
@@ -69,3 +75,33 @@ def create_user(user):
             'token': id,
             'valid': True
         })
+        
+class UserSerializer(serializers.ModelSerializer):
+    """JSON serializer for game types
+    """
+    class Meta:
+        model = User
+        fields = ('uid', 'bio', 'id')
+        
+class UserView(ViewSet):
+    
+    def retrieve(self, request, pk):
+        try:
+            user = User.objects.get(pk=pk)
+            serializer = UserSerializer(user)
+            return Response(serializer.data)
+        except User.DoesNotExist:
+            return Response({'message': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    def list(self, request):
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+    
+    def update(self, request, pk):
+        user = User.objects.get(pk=pk)
+        user.uid = request.data["uid"]
+        user.bio = request.data["bio"]
+        user.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
