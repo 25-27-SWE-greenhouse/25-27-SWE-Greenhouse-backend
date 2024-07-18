@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path, include
 from greenhousebackend.views.auth import register_user, check_user 
 from rest_framework import routers
+from greenhousebackend.views.tag import TagView
+
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'tags', TagView, 'tag')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('checkuser', check_user, name='checkuser'),
     path('register', register_user),
     path('', include(router.urls)),
+    
 ]

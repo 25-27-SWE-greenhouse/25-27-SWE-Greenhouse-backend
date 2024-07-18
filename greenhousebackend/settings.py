@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'greenhousebackend'
+    'rest_framework',
+    'greenhousebackend',
 ]
 
 #connecting to local front end
