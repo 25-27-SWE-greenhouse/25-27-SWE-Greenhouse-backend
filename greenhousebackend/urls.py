@@ -18,8 +18,11 @@ from django.urls import path, include
 from greenhousebackend.views.auth import register_user, check_user
 from greenhousebackend.views.user import UserView
 from rest_framework import routers
+from greenhousebackend.views.tag import TagView
+
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'tags', TagView, 'tag')
 router.register(r'users', UserView, 'user')
 
 urlpatterns = [
@@ -27,4 +30,5 @@ urlpatterns = [
     path('checkuser', check_user, name='checkuser'),
     path('register', register_user),
     path('', include(router.urls)),
+    
 ]
