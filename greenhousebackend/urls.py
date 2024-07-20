@@ -19,11 +19,13 @@ from greenhousebackend.views.auth import register_user, check_user
 from greenhousebackend.views.user import UserView
 from rest_framework import routers
 from greenhousebackend.views.tag import TagView
+from greenhousebackend.views.plant import PlantView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'tags', TagView, 'tag')
 router.register(r'users', UserView, 'user')
+router.register(r'plants', PlantView, 'plant')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
