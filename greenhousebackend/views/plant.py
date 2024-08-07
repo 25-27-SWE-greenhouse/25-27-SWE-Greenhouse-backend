@@ -22,15 +22,23 @@ class PlantView(viewsets.ViewSet):
 
     def create(self, request):
         serializer = PlantSerializer(data=request.data)
-        tag = Tag.objects.get(pk=request.data['tags'])
         
         if serializer.is_valid():
             plant = serializer.save()
-        
-            PlantTag.objects.create(
-                plant = plant,
-                tag = tag,
-            )
+            tags = request.data.get('tags', [])
+            if not isinstance(tags, list):
+                tags = [tags]
+                
+            for tag_id in tags:
+                try:
+                    tag = Tag.objects.get(pk=tag_id)
+                    PlantTag.objects.create(
+                        plant = plant,
+                        tag = tag,
+                    )
+                except Tag.DoesNotExist:
+                    return Response({'error': f'Tag with id {tag_id} does not exist.'}, status=status.HTTP_400_BAD_REQUEST)
+            
             return Response(serializer.data, status=status.HTTP_201_CREATED)
        
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
