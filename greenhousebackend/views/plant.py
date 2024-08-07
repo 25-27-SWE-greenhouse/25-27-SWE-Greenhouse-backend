@@ -1,7 +1,7 @@
 from rest_framework import serializers, status, viewsets
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
-from greenhousebackend.models import Plant
+from greenhousebackend.models import Plant, PlantTag, Tag
 
 class PlantSerializer(serializers.ModelSerializer):
     class Meta:
@@ -12,11 +12,22 @@ class PlantView(viewsets.ViewSet):
     """retrieves all plants ordered by name"""
     def list(self, request):
         queryset = Plant.objects.all().order_by('name')
+        
+        tags = request.query_params.get('tags', None)
+        if tags is not None:
+            queryset = Plant.objects.filter(planttag__tag_id=tags)
+        
         serializer = PlantSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def create(self, request):
         serializer = PlantSerializer(data=request.data)
+        tag = Tag.objects.get(pk=request.data['tags'])
+        PlantTag.objects.create(
+            plant = serializer,
+            tag = tag,
+        )
+        
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

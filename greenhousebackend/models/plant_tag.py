@@ -4,5 +4,5 @@ from .tag import Tag
 
 
 class PlantTag(models.Model):
-    plant_id = models.ForeignKey(Plant, on_delete=models.CASCADE)
-    tag_id = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
+    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)

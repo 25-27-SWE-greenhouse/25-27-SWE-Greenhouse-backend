@@ -85,6 +85,19 @@ CREATE TABLE "Categories" (
   "label" varchar
 );
 
+DROP TABLE greenhousebackend_plant;
+
+DROP TABLE greenhousebackend_plant_tags;
+
+DROP TABLE greenhousebackend_planttag;
+
+DROP TABLE greenhousebackend_tag;
+
+DROP TABLE greenhousebackend_user;
+
+DROP TABLE greenhousebackend_userplant;
+
+
 INSERT INTO Categories ('label') VALUES ('News');
 INSERT INTO Tags ('label') VALUES ('JavaScript');
 INSERT INTO Reactions ('label', 'image_url') VALUES ('happy', 'https://pngtree.com/so/happy');
