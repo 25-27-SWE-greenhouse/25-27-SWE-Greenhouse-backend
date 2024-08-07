@@ -23,14 +23,16 @@ class PlantView(viewsets.ViewSet):
     def create(self, request):
         serializer = PlantSerializer(data=request.data)
         tag = Tag.objects.get(pk=request.data['tags'])
-        PlantTag.objects.create(
-            plant = serializer,
-            tag = tag,
-        )
         
         if serializer.is_valid():
-            serializer.save()
+            plant = serializer.save()
+        
+            PlantTag.objects.create(
+                plant = plant,
+                tag = tag,
+            )
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+       
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def retrieve(self, request, pk=None):
