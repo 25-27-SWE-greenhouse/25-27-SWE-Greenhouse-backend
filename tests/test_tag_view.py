@@ -6,7 +6,7 @@ from greenhousebackend.views import TagSerializer
 
 class TagTests(APITestCase):
   
-  fixtures = []
+  fixtures = ['tags']
   
   def setUp(self):
     self.user = User.objects.first()
