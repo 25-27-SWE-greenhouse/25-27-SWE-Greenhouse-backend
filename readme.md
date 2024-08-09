@@ -1,6 +1,7 @@
 # Greenhouse Server
 
 ## Overview:
+Be sure to checkout the client-side repository for this prject [here](https://github.com/25-27-SWE-greenhouse/25-27-SWE-Greenhouse-frontend)
 Greenhouse is a platform designed for plant enthusiasts to easily post, track, and organize the plants they own. Whether you're a seasoned gardener or just starting your indoor jungle, Greenhouse helps you manage your collection with ease.
 Greenhouse makes it simple to keep a detailed record of your plant collection, allowing you to focus on what you love—nurturing your plants.
 
@@ -43,3 +44,4 @@ ___
 ### Links and resources:
 - [Project Board](https://github.com/orgs/25-27-SWE-greenhouse/projects/1/views/1)
 - [ERD](https://drawsql.app/teams/nss-48/diagrams/swe-greenhouse)
+- [Client Side Repository](https://github.com/25-27-SWE-greenhouse/25-27-SWE-Greenhouse-frontend)
