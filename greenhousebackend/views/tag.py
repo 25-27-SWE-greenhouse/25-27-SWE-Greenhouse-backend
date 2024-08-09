@@ -16,8 +16,13 @@ class TagView(ViewSet):
 
 
     def list(self, request):
-        tag = Tag.objects.all()
-        serializer = TagSerializer(tag, many=True)
+        tags = Tag.objects.all()
+        
+        plant = request.query_params.get('plant', None)
+        if plant is not None:
+            tags = Tag.objects.filter(planttag__plant_id=plant)
+        
+        serializer = TagSerializer(tags, many=True)
         return Response(serializer.data)
     
     def create(self, request):

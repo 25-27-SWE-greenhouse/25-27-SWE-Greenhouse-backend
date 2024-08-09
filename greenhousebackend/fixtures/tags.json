@@ -1,0 +1,30 @@
+[
+  {
+      "model": "greenhousebackend.tag",
+      "pk": 1,
+      "fields": {
+          "name": "Chicago"
+      }
+  },
+  {
+      "model": "greenhousebackend.tag",
+      "pk": 2,
+      "fields": {
+          "name": "White Plains"
+      }
+  },
+  {
+      "model": "greenhousebackend.tag",
+      "pk": 3,
+      "fields": {
+          "name": "San Diego"
+      }
+  },
+  {
+      "model": "greenhousebackend.tag",
+      "pk": 4,
+      "fields": {
+          "name": "Boise"
+      }
+  }
+]
