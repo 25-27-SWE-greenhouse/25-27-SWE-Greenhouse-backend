@@ -40,5 +40,3 @@ ___
 ### Links and resources:
 - [Project Board](https://github.com/orgs/25-27-SWE-greenhouse/projects/1/views/1)
 - [ERD](https://drawsql.app/teams/nss-48/diagrams/swe-greenhouse)
-- [Wireframe](https://www.figma.com/file/6PlL8qdAZ5fsyStEtBT873/attention-defficient?type=design&node-id=2-3&mode=design&t=CBqLkDDjOK1Bj9Ha-0)
-
