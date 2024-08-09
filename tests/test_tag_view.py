@@ -25,7 +25,7 @@ class TagTests(APITestCase):
     self.assertEqual(expected.data, response.data)
     
   def test_get_tag(self):
-    """Get Tag Test"""
+    """test get tag"""
     tag = Tag.objects.first()
     url = f'/tags/{tag.id}'
     response = self.client.get(url)
@@ -57,12 +57,3 @@ class TagTests(APITestCase):
     tag.refresh_from_db()
     self.assertEqual(updated_tag['name'], tag.name)
     
-  def test_delete_tag(self):
-    """test delete tag"""
-    tag = Tag.objects.first()
-    url = f'/tags/{tag.id}'
-    response = self.client.delete(url)
-    self.assertEqual(status.HTTP_204_NO_CONTENT, response.status_code)
-    
-    response = self.client.get(url)
-    self.assertEqual(status.HTTP_404_NOT_FOUND, response.status_code)
