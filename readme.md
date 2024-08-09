@@ -1,9 +1,12 @@
 # Greenhouse Server
-<!-- TODO: Add a description of the Rare application -->
 
 ## Overview:
+Greenhouse is a platform designed for plant enthusiasts to easily post, track, and organize the plants they own. Whether you're a seasoned gardener or just starting your indoor jungle, Greenhouse helps you manage your collection with ease.
+Greenhouse makes it simple to keep a detailed record of your plant collection, allowing you to focus on what you love—nurturing your plants.
 
 ### Key Features include:
+- Plant Management: Add new plants to your collection, update their details, or remove them when needed. Keep track of all your plants in one place.
+- Tagging System: Organize your plants using tags. Tags can represent anything you want, such as plant type, care needs, or location. Easily view plants grouped by these tags for better organization.
 
 ### Tech Stack:
 This app uses:
