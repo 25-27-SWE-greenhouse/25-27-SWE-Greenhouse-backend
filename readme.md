@@ -45,3 +45,4 @@ ___
 - [Project Board](https://github.com/orgs/25-27-SWE-greenhouse/projects/1/views/1)
 - [ERD](https://drawsql.app/teams/nss-48/diagrams/swe-greenhouse)
 - [Client Side Repository](https://github.com/25-27-SWE-greenhouse/25-27-SWE-Greenhouse-frontend)
+- [Wireframe](https://www.figma.com/board/iBfaexoImnuptPHyl8J3Zr/Greenhouse?node-id=0-1&t=xi9VkIWwxMYEYgJU-1)
